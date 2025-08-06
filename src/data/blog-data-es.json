@@ -12,23 +12,6 @@
       "Desde aquí, miles de viajeros inician su aventura hacia destinos paradisíacos, convirtiendo a Puerto Juárez en la puerta de entrada a experiencias inolvidables."
     ],
 
-    "_comment_template_2_inicio": "==========================================",
-    "_comment_template_2_titulo": "INICIO TEMPLATE 2 - GUÍA DE LUGARES/TOURS",
-    "_comment_template_2_descripcion": "==========================================",
-    "acapulcoGuide": {
-      "data": {
-        "mainTitle": "¿Qué visitar en Puerto Juárez? 8 Lugares Imperdibles",
-        "subtitle": "Descubre qué visitar en Puerto Juárez durante tus vacaciones o de fin de semana",
-        "introductionParagraphs": [
-          "El ambiente tropical y de playa son una sensación única que transmiten paz y relajación. Puerto Juárez es un lugar con estas características, con múltiples lugares para visitar que se convierte en un destino perfecto para los días vacacionales.",
-          "Además de las playas bonitas de Puerto Juárez, existen lugares turísticos que son muy tradicionales de la zona y que se caracterizan por ser únicos en su tipo."
-        ]
-      }
-    },
-    "_comment_template_2_fin": "==========================================",
-    "_comment_template_2_fin_titulo": "FIN TEMPLATE 2 - GUÍA DE LUGARES/TOURS",
-    "_comment_template_2_fin_descripcion": "==========================================",
-
     "sections": {
       "_comment_template_1_inicio": "==========================================",
       "_comment_template_1_titulo": "INICIO TEMPLATE 1 - GUÍA DE VIAJE COMPLETA",
@@ -953,23 +936,6 @@
       "Prepárate para descubrir todo lo que este vibrante puerto tiene para ofrecer, desde su rica historia hasta sus emocionantes actividades."
     ],
 
-    "_comment_template_2_inicio": "==========================================",
-    "_comment_template_2_titulo": "INICIO TEMPLATE 2 - GUÍA DE LUGARES/TOURS",
-    "_comment_template_2_descripcion": "==========================================",
-    "acapulcoGuide": {
-      "data": {
-        "mainTitle": "¿Qué visitar en Acapulco? 10 Lugares que no te puedes perder",
-        "subtitle": "Descubre los tesoros de Acapulco, desde sus playas hasta su cultura",
-        "introductionParagraphs": [
-          "Acapulco es mucho más que solo playas. Es un destino lleno de historia, cultura y belleza natural. Cada rincón de la ciudad cuenta una historia, esperando a ser descubierta por viajeros curiosos.",
-          "En esta guía, te llevaremos a un recorrido por los lugares más emblemáticos y las joyas ocultas que hacen de Acapulco un destino inolvidable."
-        ]
-      }
-    },
-    "_comment_template_2_fin": "==========================================",
-    "_comment_template_2_fin_titulo": "FIN TEMPLATE 2 - GUÍA DE LUGARES/TOURS",
-    "_comment_template_2_fin_descripcion": "==========================================",
-
     "sections": {
       "_comment_template_1_inicio": "==========================================",
       "_comment_template_1_titulo": "INICIO TEMPLATE 1 - GUÍA DE VIAJE COMPLETA",
@@ -1357,23 +1323,6 @@
       "Desde resorts todo incluido para familias hasta lujosos hoteles boutique solo para adultos, Cancún tiene el alojamiento perfecto para cada tipo de viajero.",
       "En esta guía, te ayudaremos a navegar por la Zona Hotelera y más allá para encontrar tu hogar lejos del hogar."
     ],
-
-    "_comment_template_2_inicio": "==========================================",
-    "_comment_template_2_titulo": "INICIO TEMPLATE 2 - GUÍA DE LUGARES/TOURS",
-    "_comment_template_2_descripcion": "==========================================",
-    "acapulcoGuide": {
-      "data": {
-        "mainTitle": "Encontrando tu Hotel Ideal en Cancún",
-        "subtitle": "Una guía para elegir el mejor resort en la Zona Hotelera y Playa Mujeres",
-        "introductionParagraphs": [
-          "La Zona Hotelera de Cancún, una franja de tierra de 23 kilómetros en forma de '7', alberga la mayoría de los resorts, restaurantes y vida nocturna. Cada kilómetro ofrece una experiencia diferente.",
-          "Ya sea que busques un ambiente de fiesta, un retiro tranquilo o un paraíso familiar, la clave está en saber dónde buscar."
-        ]
-      }
-    },
-    "_comment_template_2_fin": "==========================================",
-    "_comment_template_2_fin_titulo": "FIN TEMPLATE 2 - GUÍA DE LUGARES/TOURS",
-    "_comment_template_2_fin_descripcion": "==========================================",
 
     "sections": {
       "_comment_template_1_inicio": "==========================================",

@@ -5,6 +5,12 @@ import { useRouter } from "next/navigation"
 export default function CardsHomeBlog({ blog, lang = "es", TruncateLetters }) {
   const router = useRouter()
 
+  const searchBlog = (blogItem) => {
+    const targetUrl = `/${lang}/${blogItem.id}`
+    console.log("🔍 Navegando a:", targetUrl)
+    router.push(targetUrl)
+  }
+
   const getCategoryName = (type) => {
     const categories = {
       hotel: lang === "en" ? "Hotels" : "Hoteles",
@@ -24,84 +30,48 @@ export default function CardsHomeBlog({ blog, lang = "es", TruncateLetters }) {
     return labels[templateNumber] || (lang === "en" ? "Guide" : "Guía")
   }
 
-  const handleCardClick = () => {
-    const destinationPath = `/${lang}/${blog.slug || blog.id}`
-    console.log("🔍 Navegando a:", destinationPath)
-    router.push(destinationPath)
-  }
-
   return (
-<<<<<<< HEAD
-    <div className="flex gap-2 flex-wrap max-lg:justify-center">
-      <div
-        onClick={handleCardClick}
-        className="relative flex flex-col w-[220px] h-[260px] border border-[#ebebeb] px-2 pt-2 pb-3 rounded-lg shadow-3xl justify-between max-xl:w-[200px] max-md:w-full cursor-pointer hover:shadow-xl group transition-shadow duration-300"
-      >
-        {blog.template && (
-          <div className="absolute top-1 right-1 bg-blue-500 text-white px-1 py-0.5 rounded-full text-fs-8 m-s-b z-20">
-            {getTemplateLabel(blog.template)}
-          </div>
-        )}
+    <div
+      onClick={() => searchBlog(blog)}
+      className="relative flex flex-col w-[332px] h-[372px] border border-[#ebebeb] px-4 pt-4 pb-6 rounded-lg shadow-3xl justify-between cursor-pointer hover:shadow-xl group transition-shadow duration-300 bg-white"
+    >
+      {/* Etiqueta del template */}
+      {blog.template && (
+        <div className="absolute top-2 right-2 bg-blue-500 text-white px-2 py-1 rounded-full text-fs-10 m-s-b z-20">
+          {getTemplateLabel(blog.template)}
+        </div>
+      )}
+
+      <div className="flex flex-col gap-4">
+        {/* IMG CARD */}
+        <div className="h-[150px] overflow-hidden rounded-lg relative z-10">
+          <img
+            src={blog.image || "/placeholder.svg"}
+            alt="blog card"
+            className="rounded-lg w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-in-out select-none"
+          />
+        </div>
+
+        {/* CONTENT */}
         <div className="flex flex-col gap-2">
-          <div className="h-[90px] overflow-hidden rounded-lg relative z-10">
-=======
-    <div className="flex gap-4 flex-wrap max-lg:justify-center">
-      <div
-        onClick={handleCardClick}
-        className="relative flex flex-col w-[332px] h-[372px] border border-[#ebebeb] px-4 pt-4 pb-6 rounded-lg shadow-3xl justify-between max-xl:w-[309px] max-md:w-full cursor-pointer hover:shadow-xl group transition-shadow duration-300"
-      >
-        {blog.template && (
-          <div className="absolute top-2 right-2 bg-blue-500 text-white px-2 py-1 rounded-full text-fs-10 m-s-b z-20">
-            {getTemplateLabel(blog.template)}
-          </div>
-        )}
-        <div className="flex flex-col gap-4">
-          <div className="h-[150px] overflow-hidden rounded-lg relative z-10">
->>>>>>> 749f38e4c23e3756e74a8b69f965bce1a2112d12
-            <img
-              src={blog.image || "/placeholder.svg"}
-              alt="blog card"
-              className="rounded-lg w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-in-out select-none"
-            />
-          </div>
-<<<<<<< HEAD
-          <div className="flex flex-col gap-1">
-            <span className="text-[#d1d2d5] text-fs-10 m-m">{blog.date}</span>
-            <span className="text-fs-12 m-b">
-              {TruncateLetters(blog.mainTitle?.[lang] || blog.mainTitle?.es || "...", 6)}
-            </span>
-            <span className="text-fs-10 m-m text-gry-100 text-justify">
-              {TruncateLetters(blog.description?.[lang] || blog.description?.es || "...", 12) + " ..."}
-            </span>
-          </div>
+          <span className="text-[#d1d2d5] text-fs-12 m-m">{blog.date}</span>
+          <span className="text-fs-16 m-b">
+            {TruncateLetters(blog.mainTitle?.[lang] || blog.mainTitle?.es || "...", 10)}
+          </span>
+          <span className="text-fs-12 m-m text-gry-100 text-justify">
+            {TruncateLetters(blog.description?.[lang] || blog.description?.es || "...", 21) + " ..."}
+          </span>
         </div>
-        <div className="flex gap-1 flex-wrap">
-          {blog.type.slice(0, 2).map((blogT, index) => (
-            <div key={index} className="rounded-full bg-gry-50 text-gry-100 px-1.5 py-0.5 w-fit text-fs-8">
-=======
-          <div className="flex flex-col gap-2">
-            <span className="text-[#d1d2d5] text-fs-12 m-m">{blog.date}</span>
-            <span className="text-fs-16 m-b">
-              {TruncateLetters(blog.mainTitle?.[lang] || blog.mainTitle?.es || "...", 10)}
-            </span>
-            <span className="text-fs-12 m-m text-gry-100 text-justify">
-              {TruncateLetters(blog.description?.[lang] || blog.description?.es || "...", 21) + " ..."}
-            </span>
+      </div>
+
+      {/* CATEGORIES */}
+      <div className="flex gap-3">
+        {blog.type.map((blogT, index) => (
+          <div key={index} className="rounded-full bg-gry-50 text-gry-100 px-2 py-1 w-fit text-fs-10">
+            {getCategoryName(blogT)}
           </div>
-        </div>
-        <div className="flex gap-3">
-          {blog.type.map((blogT, index) => (
-            <div key={index} className="rounded-full bg-gry-50 text-gry-100 px-2 py-1 w-fit text-fs-10">
->>>>>>> 749f38e4c23e3756e74a8b69f965bce1a2112d12
-              {getCategoryName(blogT)}
-            </div>
-          ))}
-        </div>
+        ))}
       </div>
     </div>
   )
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> 749f38e4c23e3756e74a8b69f965bce1a2112d12
+} 

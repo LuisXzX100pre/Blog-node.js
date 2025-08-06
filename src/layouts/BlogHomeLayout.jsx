@@ -9,8 +9,8 @@ import ListingBlog from "../components/blog-home/ListingBlog"
 import { useLanguage } from "../context/LanguageContext"
 
 export default function BlogHomeLayout({ lang }) {
-  // Eliminamos la dependencia del contexto de idioma
-  const currentLang = lang || "es"
+  const { lang: contextLang } = useLanguage()
+  const currentLang = lang || contextLang || "es"
   const [selectedCategories, setSelectedCategories] = useState([])
   const [searchTerm, setSearchTerm] = useState("")
 
@@ -47,14 +47,16 @@ export default function BlogHomeLayout({ lang }) {
 
       <Container>
         <div className="py-8">
-          <div className="flex flex-col xl:flex-row md:justify-between">
-            <div className="w-full xl:w-[22%] 2xl:w-[18%] mt-[47px] mb-11 max-md:mb-2">
+          <div className="flex flex-col xl:flex-row gap-8">
+            {/* Sidebar izquierdo */}
+            <div className="w-full xl:w-[300px] flex-shrink-0">
               <SearchHomeBlog lang={currentLang} onSearchChange={handleSearchChange} />
               <FilterHomeBlog lang={currentLang} onFilterChange={handleFilterChange} />
               <NewsHomeBlog lang={currentLang} />
             </div>
 
-            <div className="flex flex-col w-full xl:w-[76%] max-xl:mx-0 ml-16 h-full mb-4">
+            {/* Área principal de contenido */}
+            <div className="flex-1">
               <ListingBlog lang={currentLang} selectedCategories={selectedCategories} searchTerm={searchTerm} />
             </div>
           </div>
