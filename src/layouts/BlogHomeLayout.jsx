@@ -47,9 +47,9 @@ export default function BlogHomeLayout({ lang }) {
 
       <Container>
         <div className="py-8">
-          <div className="flex flex-col xl:flex-row gap-8">
+          <div className="flex flex-col lg:flex-row gap-x-8">
             {/* Sidebar izquierdo */}
-            <div className="w-full xl:w-[300px] flex-shrink-0">
+            <div className="max-md:w-full md:w-[300px]">
               <SearchHomeBlog lang={currentLang} onSearchChange={handleSearchChange} />
               <FilterHomeBlog lang={currentLang} onFilterChange={handleFilterChange} />
               <NewsHomeBlog lang={currentLang} />
