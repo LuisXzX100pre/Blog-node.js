@@ -19,9 +19,9 @@ import GalleryPicsCollage from "../components/template1/gallerypicscollage"
 import WhatWillYouFind from "../components/template1/whatwillyoufind"
 import ScheduleBlog from "../components/template1/scheduleblog"
 import { useLanguage } from "../context/languagecontext"
+import { LayoutHelpers } from "../utils/layout-helpers"
 
 export default function Template1Layout({ blogData: propBlogData, lang }) {
-  // Eliminamos la dependencia del contexto de idioma
   const currentLang = lang || "es"
 
   const data = Object.values(propBlogData)[0]
@@ -55,16 +55,45 @@ export default function Template1Layout({ blogData: propBlogData, lang }) {
                 data.introduction.map((paragraph, index) => <Paragraph key={index} text={paragraph} />)}
 
               <div className="space-y-12">
-                <GalleryPicsCollage data={sections?.photoGallery?.data} lang={currentLang} />
-                <WhereLocated data={sections?.locationInfo?.data} type={type} lang={currentLang} />
-                <HowToBook data={sections?.howToBookTransport?.data} type={type} lang={currentLang} />
-                <HowToGet data={sections?.howToGetThere?.data} type={type} lang={currentLang} />
-                <VideoPlace data={sections?.journeyVideo?.data} type={type} lang={currentLang} />
-                <ScheduleBlog data={sections?.ferrySchedule?.data} type={type} lang={currentLang} />
-                <WhatWillYouFind data={sections?.whatToFind?.data} type={type} lang={currentLang} />
-                <FromToBlog data={sections?.routesFrom?.data} type={type} lang={currentLang} />
-                <FamilyHotelsBlog data={sections?.familyHotels?.data} type={type} lang={currentLang} />
-                <FavoriteActivitiesBlog data={sections?.favoriteActivities?.data} type={type} lang={currentLang} />
+                {LayoutHelpers.shouldRenderSection(sections, 'photoGallery', currentLang) && (
+                  <GalleryPicsCollage data={sections?.photoGallery?.data} lang={currentLang} />
+                )}
+                
+                {LayoutHelpers.shouldRenderSection(sections, 'locationInfo', currentLang) && (
+                  <WhereLocated data={sections?.locationInfo?.data} type={type} lang={currentLang} />
+                )}
+                
+                {LayoutHelpers.shouldRenderSection(sections, 'howToBookTransport', currentLang) && (
+                  <HowToBook data={sections?.howToBookTransport?.data} type={type} lang={currentLang} />
+                )}
+                
+                {LayoutHelpers.shouldRenderSection(sections, 'howToGetThere', currentLang) && (
+                  <HowToGet data={sections?.howToGetThere?.data} type={type} lang={currentLang} />
+                )}
+                
+                {LayoutHelpers.shouldRenderSection(sections, 'journeyVideo', currentLang) && (
+                  <VideoPlace data={sections?.journeyVideo?.data} type={type} lang={currentLang} />
+                )}
+                
+                {LayoutHelpers.shouldRenderSection(sections, 'ferrySchedule', currentLang) && (
+                  <ScheduleBlog data={sections?.ferrySchedule?.data} type={type} lang={currentLang} />
+                )}
+                
+                {LayoutHelpers.shouldRenderSection(sections, 'whatToFind', currentLang) && (
+                  <WhatWillYouFind data={sections?.whatToFind?.data} type={type} lang={currentLang} />
+                )}
+                
+                {LayoutHelpers.shouldRenderSection(sections, 'routesFrom', currentLang) && (
+                  <FromToBlog data={sections?.routesFrom?.data} type={type} lang={currentLang} />
+                )}
+                
+                {LayoutHelpers.shouldRenderSection(sections, 'familyHotels', currentLang) && (
+                  <FamilyHotelsBlog data={sections?.familyHotels?.data} type={type} lang={currentLang} />
+                )}
+                
+                {LayoutHelpers.shouldRenderSection(sections, 'favoriteActivities', currentLang) && (
+                  <FavoriteActivitiesBlog data={sections?.favoriteActivities?.data} type={type} lang={currentLang} />
+                )}
               </div>
               <CategoryTags lang={currentLang} />
               <RelatedArticlesBlog lang={currentLang} />

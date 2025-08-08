@@ -13,6 +13,7 @@ import PlacesToVisit from "../components/template2/placestovisit"
 import RecommendationsBeforeVisit from "../components/template2/recommendationsbeforevisit"
 import RoutesRecommendations from "../components/template2/routesrecommendations"
 import { useLanguage } from "../context/LanguageContext"
+import { LayoutHelpers } from "../utils/layout-helpers"
 
 export default function Template2Layout({ blogData: propBlogData, lang }) {
   // Eliminamos la dependencia del contexto de idioma
@@ -41,46 +42,60 @@ export default function Template2Layout({ blogData: propBlogData, lang }) {
         <CreationDate date={data.date} />
         <div className="max-w-[68vw] mx-auto px-4 sm:px:6 lg:px-8">
           <div className="flex flex-col justify-center">
-            <AcapulcoGuideIntro data={sections?.acapulcoGuide?.data} type={type} lang={currentLang} />
+            {LayoutHelpers.shouldRenderSection(sections, 'acapulcoGuide', currentLang) && (
+              <AcapulcoGuideIntro data={sections?.acapulcoGuide?.data} type={type} lang={currentLang} />
+            )}
 
             <div className="space-y-12">
-              <section>
-                <PlacesToVisit
-                  data={sections?.placesToVisit?.data}
-                  showFirstHalf={true}
-                  type={type}
-                  lang={currentLang}
-                />
-              </section>
+              {LayoutHelpers.shouldRenderSection(sections, 'placesToVisit', currentLang) && (
+                <section>
+                  <PlacesToVisit
+                    data={sections?.placesToVisit?.data}
+                    showFirstHalf={true}
+                    type={type}
+                    lang={currentLang}
+                  />
+                </section>
+              )}
 
-              <section>
-                <FactBox data={sections?.quickFact?.data} type={type} lang={currentLang} />
-              </section>
+              {LayoutHelpers.shouldRenderSection(sections, 'quickFact', currentLang) && (
+                <section>
+                  <FactBox data={sections?.quickFact?.data} type={type} lang={currentLang} />
+                </section>
+              )}
 
-              <section>
-                <PlacesToVisit
-                  data={sections?.placesToVisit?.data}
-                  showSecondHalf={true}
-                  type={type}
-                  lang={currentLang}
-                />
-              </section>
+              {LayoutHelpers.shouldRenderSection(sections, 'placesToVisit', currentLang) && (
+                <section>
+                  <PlacesToVisit
+                    data={sections?.placesToVisit?.data}
+                    showSecondHalf={true}
+                    type={type}
+                    lang={currentLang}
+                  />
+                </section>
+              )}
 
-              <section>
-                <MapView data={sections?.touristMap?.data} type={type} lang={currentLang} />
-              </section>
+              {LayoutHelpers.shouldRenderSection(sections, 'touristMap', currentLang) && (
+                <section>
+                  <MapView data={sections?.touristMap?.data} type={type} lang={currentLang} />
+                </section>
+              )}
 
-              <section>
-                <RecommendationsBeforeVisit
-                  data={sections?.beforeYouVisitRecommendations?.data}
-                  type={type}
-                  lang={currentLang}
-                />
-              </section>
+              {LayoutHelpers.shouldRenderSection(sections, 'beforeYouVisitRecommendations', currentLang) && (
+                <section>
+                  <RecommendationsBeforeVisit
+                    data={sections?.beforeYouVisitRecommendations?.data}
+                    type={type}
+                    lang={currentLang}
+                  />
+                </section>
+              )}
 
-              <section>
-                <RoutesRecommendations data={sections?.routesFrom?.data} type={type} lang={currentLang} />
-              </section>
+              {LayoutHelpers.shouldRenderSection(sections, 'routesFrom', currentLang) && (
+                <section>
+                  <RoutesRecommendations data={sections?.routesFrom?.data} type={type} lang={currentLang} />
+                </section>
+              )}
             </div>
             <CategoryTags lang={currentLang} />
             <RelatedArticlesBlog lang={currentLang} />

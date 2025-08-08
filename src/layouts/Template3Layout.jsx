@@ -12,9 +12,9 @@ import WeatherRecommendations from "../components/template3/weatherrecommendatio
 import InfoByMonth from "../components/template3/infobymonth"
 import CurrentQuestions from "../components/template3/currentquestions"
 import { useLanguage } from "../context/LanguageContext"
+import { LayoutHelpers } from "../utils/layout-helpers"
 
 export default function Template3Layout({ blogData: propBlogData, lang }) {
-  // Eliminamos la dependencia del contexto de idioma
   const currentLang = lang || "es"
 
   const data = Object.values(propBlogData)[0]
@@ -48,9 +48,17 @@ export default function Template3Layout({ blogData: propBlogData, lang }) {
                 data.introduction.map((paragraph, index) => <Paragraph key={index} text={paragraph} />)}
 
               <div className="space-y-12">
-                <WeatherRecommendations data={sections?.climateOverview?.data} type={type} lang={currentLang} />
-                <InfoByMonth data={sections?.monthlyWeatherInfo?.data} type={type} lang={currentLang} />
-                <CurrentQuestions data={sections?.frequentlyAskedQuestions?.data} type={type} lang={currentLang} />
+                {LayoutHelpers.shouldRenderSection(sections, 'climateOverview', currentLang) && (
+                  <WeatherRecommendations data={sections?.climateOverview?.data} type={type} lang={currentLang} />
+                )}
+                
+                {LayoutHelpers.shouldRenderSection(sections, 'monthlyWeatherInfo', currentLang) && (
+                  <InfoByMonth data={sections?.monthlyWeatherInfo?.data} type={type} lang={currentLang} />
+                )}
+                
+                {LayoutHelpers.shouldRenderSection(sections, 'frequentlyAskedQuestions', currentLang) && (
+                  <CurrentQuestions data={sections?.frequentlyAskedQuestions?.data} type={type} lang={currentLang} />
+                )}
               </div>
               <CategoryTags lang={currentLang} />
               <RelatedArticlesBlog lang={currentLang} />
