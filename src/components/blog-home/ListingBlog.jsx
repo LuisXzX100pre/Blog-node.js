@@ -67,7 +67,7 @@ export default function ListingBlog({ lang = "es", selectedCategories = [], sear
   return (
     <div className="w-full">
       {/* Contenedor flex para cards horizontales */}
-      <div className="flex flex-wrap gap-6 justify-start">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {!isLoader && currentBlog.length > 0 ? (
           <>
             {currentBlog.map((blog, index) => (

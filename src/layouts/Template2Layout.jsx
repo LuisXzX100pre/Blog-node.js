@@ -16,7 +16,6 @@ import { useLanguage } from "../context/LanguageContext"
 import { LayoutHelpers } from "../utils/layout-helpers"
 
 export default function Template2Layout({ blogData: propBlogData, lang }) {
-  // Eliminamos la dependencia del contexto de idioma
   const currentLang = lang || "es"
 
   const data = Object.values(propBlogData)[0]
